@@ -5,13 +5,13 @@ from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIV
 
 from .models import Product
 from .serializers import ProductSerializer
-from .permissions import IsAdminOrReadOnly, IsOwnerOrReadOnly
+from .permissions import IsAdminOrReadOnly
 
 
 class ProductsListAPIView(ListCreateAPIView):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
-    permission_classes = (IsOwnerOrReadOnly, IsAuthenticatedOrReadOnly)
+    permission_classes = (IsAuthenticatedOrReadOnly, )
 
 
 class ProductDetailAPIView(RetrieveUpdateDestroyAPIView):
