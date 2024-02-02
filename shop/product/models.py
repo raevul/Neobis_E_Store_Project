@@ -20,7 +20,7 @@ class Product(models.Model):
     image = models.ImageField("Product image", upload_to="Product image")
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    category = models.ManyToManyField(Category, verbose_name="category", null=True)
+    category = models.ManyToManyField(Category, verbose_name="category")
     author = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name="author")
 
     def __str__(self):
