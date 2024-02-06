@@ -5,7 +5,14 @@ from .models import Product
 
 class ProductSerializer(serializers.ModelSerializer):
     image = serializers.ImageField(required=False)
-    author = serializers.HiddenField(default=serializers.CurrentUserDefault)
+
+    class Meta:
+        model = Product
+        fields = ['title', 'price', 'image']
+
+
+class ProductDetailSerializer(serializers.ModelSerializer):
+    author = serializers.HiddenField(default=serializers.CurrentUserDefault())
 
     class Meta:
         model = Product
