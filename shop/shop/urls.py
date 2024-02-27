@@ -28,8 +28,7 @@ schema_view = get_schema_view(
     openapi.Info(
         title="E Store API",
         default_version="v1",
-        description="""In this shop implemented CRUD for products, authentication and order products
-            learn more [here](/redoc).
+        description="""In this shop implemented CRUD for products, authentication and order products.
         """,
         terms_of_service="",
         contact=openapi.Contact(email=os.getenv('EMAIL')),
@@ -43,7 +42,6 @@ schema_view = get_schema_view(
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
-    path('redoc/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
     path('api/v1/', include('product.urls')),
     path('api/v1/', include('user.urls')),
     path('api/v1/', include('order.urls')),
